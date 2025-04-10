@@ -1,0 +1,10 @@
+.text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    will-change: contents;
+  }
+  
+  

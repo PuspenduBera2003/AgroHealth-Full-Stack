@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Kalam:wght@300;400;700&family=SUSE:wght@100..800&display=swap');
+
+.nav-heading {
+    font-family: "Kalam", cursive;
+}
+
+.premium-button {
+    position: relative;
+    display: inline-block;
+}
+
+.premium-button::before,
+.premium-button::after {
+    content: '★';
+    /* Star icon */
+    font-size: 12px;
+    color: gold;
+    position: absolute;
+}
+
+.premium-button::before {
+    top: -5px;
+    left: -10px;
+}
+
+.premium-button::after {
+    bottom: -5px;
+    right: -10px;
+}
+
+/* You can add more stars with different positions */
+.premium-button .extra-star-1 {
+    content: '★';
+    font-size: 10px;
+    color: gold;
+    position: absolute;
+    top: -10px;
+    right: -20px;
+}
+
+.premium-button .extra-star-2 {
+    content: '★';
+    font-size: 8px;
+    color: gold;
+    position: absolute;
+    bottom: -10px;
+    left: -15px;
+}
+
+.navbar-glassy-light {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.mob-navbar-glassy-light {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-glassy-dark {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.mob-navbar-glassy-dark {
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.sticky {
+    position: sticky;
+}
