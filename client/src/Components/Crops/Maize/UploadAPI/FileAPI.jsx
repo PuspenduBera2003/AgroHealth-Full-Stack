@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import handleUpload from '../../../../api/handleUpload';
 import { Bounce, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateMaizeDetails } from '../../../../redux/Auth/Actions/maizeDetails';
+import { updateMaizeDetails } from '../../../../redux/Crops/Actions/maizeDetails';
 import { uploadMaizeDetails } from '../../../../api/getMaizeDetails';
 
 const FileAPI = () => {
@@ -69,7 +69,7 @@ const FileAPI = () => {
         toast.promise(
             new Promise(async (resolve, reject) => {
                 try {
-                    const response = await handleUpload(file);
+                    const response = await handleUpload(file, "predict-maize");
                     if (response.success) {
                         const timestamp = new Date().toISOString();
                         dispatch(updateMaizeDetails(response.image, response.result, timestamp));                        

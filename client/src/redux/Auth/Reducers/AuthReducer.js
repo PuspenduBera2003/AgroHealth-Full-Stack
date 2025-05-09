@@ -1,7 +1,6 @@
 // reducers/AuthReducer.js
-import { setAuthenticated, setSignUpInitialized, setUserDetails, setMaizeDetails, setMaizeInitial } from "../Actions/ActionType/AuthTypes";
+import { setAuthenticated, setSignUpInitialized, setUserDetails } from "../Actions/ActionType/AuthTypes";
 import { authChecker, getUserDetails } from "../../../api/authChecker";
-import { getMaizeDetails } from "../../../api/getMaizeDetails";
 
 const auth = async () => {
     const responseAuthChecker = await authChecker();
@@ -33,7 +32,6 @@ const initialState = {
         show: false, type: '', message: ''
     },
     userDetails: await user(),
-    maizeDetails: []
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -53,33 +51,6 @@ const AuthReducer = (state = initialState, action) => {
                 ...state,
                 signUpInitialized: { start: action.payload.start, response: action.payload.response, email: action.payload.email, username: action.payload.username, password: action.payload.password, token: action.payload.token }
             }
-        case setMaizeInitial:
-            return {
-                ...state,
-                maizeDetails: action.payload
-            }
-        case setMaizeDetails:
-            const updatedMaizeDetails = state.maizeDetails && state.maizeDetails.length > 0
-                ? [
-                    {
-                        image: action.payload.image,
-                        result: action.payload.result,
-                        timestamp: action.payload.timestamp
-                    },
-                    ...state.maizeDetails
-                ]
-                : [
-                    {
-                        image: action.payload.image,
-                        result: action.payload.result,
-                        timestamp: action.payload.timestamp
-                    }
-                ];
-
-            return {
-                ...state,
-                maizeDetails: updatedMaizeDetails,
-            };
 
 
         default:

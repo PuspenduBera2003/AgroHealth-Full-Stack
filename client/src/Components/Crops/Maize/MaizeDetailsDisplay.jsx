@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import generateMessage from '../../../api/generateMessage';
 import { getMaizeDetails } from '../../../api/getMaizeDetails';
-import updateMaizeInitial from '../../../redux/Auth/Actions/maizeDetailsInitial';
+import updateMaizeInitial from '../../../redux/Crops/Actions/maizeDetailsInitial';
 
 const SkeletonLoader = () => (
     <div className="animate-pulse space-y-4">
@@ -21,7 +21,7 @@ const SkeletonLoader = () => (
 );
 
 const MaizeDetailsDisplay = () => {
-    const maizeDetails = useSelector((state) => state.Auth.maizeDetails);
+    const maizeDetails = useSelector((state) => state.Crop.maizeDetails);
     const [loadingIndex, setLoadingIndex] = useState(null); // Track which button is loading
     const [chatMap, setChatMap] = useState({}); // Track chat for each item by index
     const [languageMap, setLanguageMap] = useState({}); // Track selected language for each item

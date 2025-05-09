@@ -4,13 +4,13 @@ const host = process.env.REACT_APP_HOST_SERVER;
 
 axios.defaults.withCredentials = true;
 
-const handleUpload = async (file) => {
+const handleUpload = async (file, uri) => {
 
     if (!(file instanceof File) || !file.size) {
         return { success: false, error: 'Invalid file object' };
     }
 
-    const uploadPhoto = `${host}/api/predict-maize`;
+    const uploadPhoto = `${host}/api/${uri}`;
 
     try {
         const formData = new FormData();

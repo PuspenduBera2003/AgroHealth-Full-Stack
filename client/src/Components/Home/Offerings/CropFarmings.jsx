@@ -34,7 +34,9 @@ const CropFarmings = () => {
                         Wheat
                     </div>
                     <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center'>
-                        <img src={tomato} alt="Infected tomato" className='w-24 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
+                        <Link to='/crops/tomato'>
+                            <img src={tomato} alt="Infected tomato" className='w-24 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
+                        </Link>
                         Tomato
                     </div>
                 </div>

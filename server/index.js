@@ -37,9 +37,11 @@ app.use("/api", require("./routes/generateOtp.js"));
 app.use("/api", require("./routes/logout.js"));
 app.use("/api", require("./routes/credentials.js"));
 app.use("/api", require("./routes/uploadOrDeletePhoto.js"));
-app.use("/api", require("./routes/predictMaize.js"));
+app.use("/api", require("./routes/maize/predictMaize.js"));
+app.use("/api", require("./routes/tomato/predictTomato.js"));
 app.use("/api", require("./routes/chat.js"));
-app.use("/api", require("./routes/maize/addOrUpdate.js"));
+app.use("/api", require("./routes/maize/addOrUpdateMaize.js"));
+app.use("/api", require("./routes/tomato/addOrUpdateTomato.js"));
 
 app.get("/api", (req, res) => {
   res.json({ success: true, message: 'app is running' })
