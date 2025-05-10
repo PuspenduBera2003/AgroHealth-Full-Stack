@@ -65,8 +65,8 @@ const UploadProfilePhoto = ({ buttonName }) => {
     return (
         <div>
             <div className='flex flex-wrap items-center justify-center gap-2 m-2'>
-                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-neutral-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-neutral-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400" onClick={toggleDrawer('bottom', true)}>
-                    <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-neutral-900 rounded-md group-hover:bg-opacity-0">
+                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-neutral-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-neutral-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 transition-colors duration-200 ease-in-out" onClick={toggleDrawer('bottom', true)}>
+                    <span className="relative px-5 py-2.5 transition-all bg-white dark:bg-neutral-900 rounded-md group-hover:bg-opacity-0 duration-200 ease-in-out">
                         {buttonName}
                     </span>
                 </button>
@@ -74,8 +74,8 @@ const UploadProfilePhoto = ({ buttonName }) => {
                     userDetails.profile_photo &&
                     <button
                         onClick={handleDelete}
-                        className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-neutral-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-neutral-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">
-                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-neutral-900 rounded-md group-hover:bg-opacity-0">
+                        className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-neutral-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-neutral-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 transition-colors duration-200 ease-in-out">
+                        <span className="relative px-5 py-2.5 transition-all bg-white dark:bg-neutral-900 rounded-md group-hover:bg-opacity-0 duration-200 ease-in-out">
                             <i className="fa-regular fa-trash-can" style={{ fontSize: '1.2rem' }}></i>
                         </span>
                     </button>
@@ -91,7 +91,7 @@ const UploadProfilePhoto = ({ buttonName }) => {
                     <div className="flex items-center justify-center w-full">
                         <Label
                             htmlFor="dropzone-file"
-                            className="dark:hover:bg-bray-800 flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-50 hover:bg-neutral-100 dark:border-neutral-600 dark:bg-neutral-700 dark:hover:border-neutral-500 dark:hover:bg-neutral-600"
+                            className="dark:hover:bg-bray-800 flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-neutral-300 bg-neutral-50 hover:bg-neutral-100 dark:border-neutral-600 dark:bg-neutral-700 dark:hover:border-neutral-500 dark:hover:bg-neutral-600 transition-colors duration-200 ease-in-out"
                         >
                             <div className="flex flex-col items-center justify-center">
                                 {
@@ -100,7 +100,7 @@ const UploadProfilePhoto = ({ buttonName }) => {
                                     ) :
                                         <div className='flex flex-col items-center justify-center'>
                                             <svg
-                                                className="mb-4 h-8 w-8 text-neutral-500 dark:text-neutral-400"
+                                                className="mb-4 h-8 w-8 text-neutral-500 dark:text-neutral-400 transition-colors duration-200 ease-in-out"
                                                 aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
@@ -114,10 +114,10 @@ const UploadProfilePhoto = ({ buttonName }) => {
                                                     d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                                                 />
                                             </svg>
-                                            <p className="mb-2 text-sm text-neutral-500 dark:text-neutral-400">
+                                            <p className="mb-2 text-sm text-neutral-500 dark:text-neutral-400 transition-colors duration-200 ease-in-out">
                                                 <span className="font-semibold">Click to upload</span> or drag and drop
                                             </p>
-                                            <p className="text-xs text-neutral-500 dark:text-neutral-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                            <p className="text-xs text-neutral-500 dark:text-neutral-400 transition-colors duration-200 ease-in-out">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                             <FileInput id="dropzone-file" className="hidden" {...getInputProps()} />
                                         </div>}
                             </div>

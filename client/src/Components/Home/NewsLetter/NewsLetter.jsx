@@ -14,15 +14,15 @@ const NewsLetter = () => {
         <div className="flex flex-col items-center justify-center py-2 md:py-10 bg-gradient-to-br px-2">
             <div className="w-full md:hidden flex items-center justify-center">
             <div className='premium-button mb-2 w-24'>
-                <div className='text-black bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-100 dark:focus:ring-amber-800 font-medium rounded-lg text-sm text-center p-2 cursor-pointer'>
+                <div className='text-black bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-amber-100 dark:focus:ring-amber-800 font-medium rounded-lg text-sm text-center p-2 cursor-pointer transition-colors duration-200 ease-in-out'>
                     Get Premium
                 </div>
             </div>
             </div>
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4 transition-colors duration-200 ease-in-out">
                 Subscribe to our Newsletter
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 transition-colors duration-200 ease-in-out">
                 Stay updated with the latest news and updates on crop and cattle health!
             </p>
 
@@ -33,7 +33,7 @@ const NewsLetter = () => {
                 <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full sm:w-auto flex-1 px-4 py-2 bg-white border-2 border-gray-300 dark:bg-neutral-700 dark:border-neutral-600 rounded-md shadow-sm text-gray-900 dark:text-gray-200 focus:outline-none focus:border-lime-500 dark:focus:border-lime-700"
+                    className="w-full sm:w-auto flex-1 px-4 py-2 bg-white border-2 border-gray-300 dark:bg-neutral-700 dark:border-neutral-600 rounded-md shadow-sm text-gray-900 dark:text-gray-200 focus:outline-none focus:border-lime-500 dark:focus:border-lime-700 transition-colors duration-200 ease-in-out"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -41,7 +41,7 @@ const NewsLetter = () => {
 
                 <button
                     type="submit"
-                    className="px-6 py-2 text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg shadow-md"
+                    className="px-6 py-2 text-white bg-gradient-to-r from-green-500 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg shadow-md transition-colors duration-200 ease-in-out"
                 >
                     Subscribe
                 </button>

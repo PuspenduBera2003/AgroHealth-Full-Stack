@@ -6,17 +6,18 @@ import { toast } from 'react-toastify';
 import generateMessage from '../../../api/generateMessage';
 import { getMaizeDetails } from '../../../api/getMaizeDetails';
 import updateMaizeInitial from '../../../redux/Crops/Actions/maizeDetailsInitial';
+import DeleteConfirmation from './DeleteConfirmation';
 
 const SkeletonLoader = () => (
     <div className="animate-pulse space-y-4">
-        <div className="h-4 w-96 bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-5/6 bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-3/4 bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-9/12 bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-full bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-2/3 bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-11/12 bg-gray-300 dark:bg-gray-600 rounded"></div>
-        <div className="h-4 w-full bg-gray-300 dark:bg-gray-600 rounded"></div>
+        <div className="h-4 w-96 bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-5/6 bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-3/4 bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-9/12 bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-full bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-2/3 bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-11/12 bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
+        <div className="h-4 w-full bg-gray-300 dark:bg-gray-600 rounded transition-colors duration-200 ease-in-out"></div>
     </div>
 );
 
@@ -25,6 +26,7 @@ const MaizeDetailsDisplay = () => {
     const [loadingIndex, setLoadingIndex] = useState(null); // Track which button is loading
     const [chatMap, setChatMap] = useState({}); // Track chat for each item by index
     const [languageMap, setLanguageMap] = useState({}); // Track selected language for each item
+    const [openModalIndex, setOpenModalIndex] = useState(null);
     const theme = useSelector(state => state.Theme.currentTheme);
     const userDetails = useSelector((state) => state.Auth.userDetails);
     const dispatch = useDispatch();
@@ -105,26 +107,41 @@ const MaizeDetailsDisplay = () => {
         return formattedDate;
     }
 
+    console.log(maizeDetails)
+
     return (
         <div className="space-y-6 p-6">
             {maizeDetails && maizeDetails.length > 0 ? (
                 maizeDetails.map((detail, index) => (
-                    <div key={index} className="p-4 flex flex-row flex-wrap items-center">
-                        <div className="w-full flex flex-wrap justify-center gap-6 mb-4 rounded-lg overflow-hidden">
+                    <div key={index} className="p-4 flex flex-row flex-wrap items-center relative">
+                        {
+                            openModalIndex === index &&
+                            <DeleteConfirmation setModalOpen={() => setOpenModalIndex(null)} image={detail.image} />
+                        }
+                        <div className={`w-full flex flex-wrap justify-center gap-1 md:gap-4 lg:gap-6 mb-4 rounded-lg overflow-hidden ${openModalIndex === index ? 'opacity-40 pointer-events-none' : ''}`}>
                             <div className="flex flex-wrap gap-6 items-center justify-center h-full">
-                                <img
-                                    src={detail.image}
-                                    alt={`Maize Disease Result ${index}`}
-                                    className="w-32 h-32 sm:w-40 sm:h-40 md:w-60 md:h-60 cursor-pointer object-cover rounded-lg hover:opacity-70 transition-opacity duration-300"
-                                />
-                                <div className="text-center text-lg text-gray-800 dark:text-gray-100">
+                                <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-60 md:h-60">
+                                    <img
+                                        src={detail.image}
+                                        alt={`Maize Disease Result ${index}`}
+                                        className="w-full h-full object-cover rounded-lg hover:opacity-70 transition-opacity duration-300"
+                                    />
+                                    <button
+                                        onClick={() => setOpenModalIndex(index)}
+                                        className="absolute top-1 left-1 bg-red-600 hover:bg-red-700 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shadow-md"
+                                        title="Delete"
+                                    >
+                                        <i className="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div className="text-center text-lg text-gray-800 dark:text-gray-100 transition-colors duration-200 ease-in-out">
                                     <div className="font-bold text-2xl text-gradient bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 mb-2 px-3 mt-2">
                                         Verdict
                                     </div>
                                     <p>{detail.result}</p>
                                     {/* Language Selector */}
                                     <select
-                                        className="m-2 w-40 bg-stone-100 dark:bg-stone-700 text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded px-1 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm custom-dropdown"
+                                        className="m-2 w-40 bg-stone-100 dark:bg-stone-700 text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded px-1 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm custom-dropdown transition-colors duration-200 ease-in-out"
                                         value={languageMap[index] || 'English'}
                                         onChange={(e) => handleLanguageChange(index, e.target.value)}
                                     >
@@ -144,18 +161,18 @@ const MaizeDetailsDisplay = () => {
                                     </select>
                                     <button
                                         type="button"
-                                        className={`mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 
+                                        className={`mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 transition-colors duration-200 ease-in-out 
                                             ${loadingIndex === index ? "opacity-50 cursor-not-allowed" : ""}`}
                                         onClick={() => handleSendMessage(detail.result, detail.image, index)}
                                         disabled={loadingIndex === index}>
                                         {loadingIndex === index ? "Loading..." : "Know More"}
                                     </button>
-                                    <p className='text-sm text-gray-600 dark:text-gray-400'>
+                                    <p className='text-sm text-gray-600 dark:text-gray-400 transition-colors duration-200 ease-in-out'>
                                         Uploaded on {dateConverter(detail.timestamp)}
                                     </p>
                                 </div>
                             </div>
-                            <div className="text-center text-lg text-gray-800 dark:text-gray-100 max-w-96 markdown">
+                            <div className="transition-colors duration-200 ease-in-out text-center text-lg text-gray-800 dark:text-gray-100 max-w-96 markdown">
                                 {/* Render Skeleton or Markdown */}
                                 {loadingIndex === index ? (
                                     <SkeletonLoader />
@@ -171,7 +188,7 @@ const MaizeDetailsDisplay = () => {
                     </div>
                 ))
             ) : (
-                <p className="text-center text-gray-700 dark:text-gray-300">No maize details available.</p>
+                <p className="text-center text-gray-700 dark:text-gray-300 transition-colors duration-200 ease-in-out">No maize details available.</p>
             )}
         </div>
     );

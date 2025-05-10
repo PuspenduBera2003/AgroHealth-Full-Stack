@@ -80,7 +80,7 @@ const CameraAPI = () => {
 
     return (
         <div
-            className="w-60 h-60 bg-stone-200 dark:bg-stone-700 rounded-lg flex flex-col gap-2 items-center justify-center cursor-pointer"
+            className="transition-colors duration-200 ease-in-out w-60 h-60 bg-stone-200 dark:bg-stone-700 rounded-lg flex flex-col gap-2 items-center justify-center cursor-pointer"
             onClick={() => {
                 if (!isCameraActive) {
                     setIsCameraActive(true);
@@ -94,8 +94,8 @@ const CameraAPI = () => {
             }}
         >
             <div className={isCameraActive ? 'hidden' : 'flex items-center justify-center flex-col gap-2'}>
-                <i className="fa-solid fa-camera text-6xl text-gray-700 dark:text-stone-900"></i>
-                <div className="text-gray-800 dark:text-gray-100">
+                <i className="fa-solid fa-camera text-6xl text-gray-700 dark:text-stone-900 transition-colors duration-200 ease-in-out"></i>
+                <div className="text-gray-800 dark:text-gray-100 transition-colors duration-200 ease-in-out">
                     {isCameraActive ? "Camera is on" : "Use your camera"}
                 </div>
             </div>

@@ -11,27 +11,27 @@ const CattleFarmings = () => {
     {/* Background Image */}
 
     {/* Glassy Card */}
-    <div className='relative z-10 flex flex-col gap-1 items-center justify-center flex-wrap bg-white/30 dark:bg-white/10 backdrop-blur-lg shadow-lg rounded-3xl p-5 md:p-6'>
+    <div className='relative z-10 flex flex-col gap-1 items-center justify-center flex-wrap bg-white/30 dark:bg-white/10 backdrop-blur-lg shadow-lg rounded-3xl p-5 md:p-6 transition-colors duration-200 ease-in-out'>
         <div className='flex flex-wrap items-center justify-center flex-col gap-2'>
-            <div className='dark:text-white text-xl font-semibold'>
+            <div className='dark:text-white text-xl font-semibold transition-colors duration-200 ease-in-out'>
                 Cattle Farming
             </div>
             <img src={cattleImg} alt="Images of Crop" className='object-cover w-full sm:w-60 sm:h-60 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
         </div>
         <div className='my-3 flex flex-row gap-3 items-center justify-center'>
-            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center'>
+            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center transition-colors duration-200 ease-in-out'>
                 <img src={murrah} alt="Infected rice" className='w-24 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
                 Murrah
             </div>
-            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center '>
+            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center transition-colors duration-200 ease-in-out'>
                 <img src={surti} alt="Infected corn" className='w-24 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
                 Surti
             </div>
-            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center'>
+            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center transition-colors duration-200 ease-in-out'>
                 <img src={jaffarabadi} alt="Infected wheat" className='w-24 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
                 Jaffarabadi
             </div>
-            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center'>
+            <div className='flex flex-col gap-1 dark:text-gray-50 items-center justify-center transition-colors duration-200 ease-in-out'>
                 <img src={bhadawari} alt="Infected tomato" className='w-24 rounded-lg cursor-pointer hover:opacity-70 transition-opacity ease-in-out' />
                 Bhadawari
             </div>

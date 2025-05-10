@@ -1,5 +1,5 @@
 // reducers/AuthReducer.js
-import { setMaizeDetails, setMaizeInitial, setTomatoDetails, setTomatoInitial } from "../Actions/ActionType/CropActionTypes";
+import { setMaizeDetails, setMaizeInitial, deleteMaizeDetails, setTomatoDetails, setTomatoInitial, deleteTomatoDetails } from "../Actions/ActionType/CropActionTypes";
 
 const initialState = {
     maizeDetails: [],
@@ -35,6 +35,11 @@ const CropReducer = (state = initialState, action) => {
                 ...state,
                 maizeDetails: updatedMaizeDetails,
             };
+        case deleteMaizeDetails:
+            return {
+                ...state,
+                maizeDetails: state.maizeDetails.filter(item => item.image !== action.payload)
+            };
         case setTomatoInitial:
             return {
                 ...state,
@@ -62,8 +67,12 @@ const CropReducer = (state = initialState, action) => {
                 ...state,
                 tomatoDetails: updatedTomatoDetails,
             };
-
-
+        case deleteTomatoDetails:
+            return {
+                ...state,
+                tomatoDetails: state.tomatoDetails.filter(item => item.image !== action.payload)
+            };
+        
         default:
             return state;
     }

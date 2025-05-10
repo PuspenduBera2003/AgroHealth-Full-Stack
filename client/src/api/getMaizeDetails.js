@@ -26,4 +26,16 @@ const uploadMaizeDetails = async (id, maizeDetails) => {
     }
 }
 
-export { getMaizeDetails, uploadMaizeDetails };
+const deleteMaizeDetails = async (image) => {
+    const maizeDeleteURL = `${host}/api/delete-maize-data`
+    try {
+        const doDelete = await axios.delete(maizeDeleteURL, {
+            data: { image }
+        });
+        return doDelete.data
+    } catch (error) {
+        return ({ success: false, error })
+    }
+}
+
+export { getMaizeDetails, uploadMaizeDetails, deleteMaizeDetails };

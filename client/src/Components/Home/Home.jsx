@@ -15,7 +15,7 @@ import TargetedUsers from './TargetedUsers/TargetedUsers'
 
 const Home = () => {
     return (
-        <div className='dark:bg-stone-800 py-4'>
+        <div className='transition-colors duration-200 ease-in-out dark:bg-stone-800 py-4'>
             <div className='z-10'>
                 <HomePageTyping />
             </div>
@@ -26,11 +26,11 @@ const Home = () => {
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="sticky cursor-pointer top-16 inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-300 dark:bg-red-500 rounded-xl group z-20">
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-500 dark:bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
-                        <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white dark:bg-stone-400"></span>
+                    className="sticky cursor-pointer top-16 inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-colors duration-200 ease-in-out bg-red-300 dark:bg-red-500 rounded-xl group z-20">
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-200 ease-in-out bg-red-500 dark:bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
+                        <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white dark:bg-stone-400 transition-colors duration-200 ease-in-out"></span>
                     </span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-400 dark:bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-200 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-400 dark:bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
                     <span className="relative w-full text-left text-black dark:text-white transition-colors duration-200 ease-in-out dark:group-hover:text-white">Our Offerings</span>
                 </Link>
             </div>
@@ -48,12 +48,12 @@ const Home = () => {
                     smooth={true}
                     offset={50}
                     duration={500}
-                    className="sticky cursor-pointer inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-red-300 dark:bg-red-500 rounded-xl group z-10" style={{ top: '7.5rem' }}>
-                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-500 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
+                    className="sticky cursor-pointer inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-colors duration-200 ease-in-out bg-red-300 dark:bg-red-500 rounded-xl group z-10" style={{ top: '7.5rem' }}>
+                    <span className="absolute top-0 right-0 inline-block w-4 h-4 transition-all duration-200 ease-in-out bg-red-700 rounded group-hover:-mr-4 group-hover:-mt-4">
                         <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white dark:bg-stone-400"></span>
                     </span>
-                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-400 dark:bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-left text-black dark:text-white transition-colors duration-200 ease-in-out dark:group-hover:text-white">Our Objectives</span>
+                    <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-200 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-400 dark:bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-left text-black dark:text-white dark:group-hover:text-white transition-colors duration-200 ease-in-out">Our Objectives</span>
                 </Link>
             </div>
 
@@ -82,7 +82,7 @@ const Home = () => {
 
                 </div>
                 <NewsLetter />
-                <div className='text-center flex items-center justify-center text-gray-700 dark:text-gray-300 w-full'>
+                <div className='text-center flex items-center justify-center text-gray-700 dark:text-gray-300 w-full transition-colors duration-200 ease-in-out'>
                     Copyright
                     <i className="fa-regular fa-copyright mx-1"></i>
                     2024, AgroHealth

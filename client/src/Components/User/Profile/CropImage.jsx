@@ -102,7 +102,7 @@ const EasyCrop = (props) => {
                     display: image === null || croppedImage !== null ? "none" : "block",
                 }}
                 onClick={showCroppedImage}
-                className="absolute bottom-2 right-2 z-50 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900"
+                className="absolute bottom-2 right-2 z-50 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-colors duration-200 ease-in-out"
             >
                 Save Changes
             </button>
@@ -112,7 +112,7 @@ const EasyCrop = (props) => {
                     display: image === null || croppedImage !== null ? "none" : "block",
                 }}
             >
-                <div className="crop-container bg-gray-50 dark:bg-gray-600">
+                <div className="crop-container bg-gray-50 dark:bg-gray-600 transition-colors duration-200 ease-in-out">
                     <Cropper
                         image={image}
                         crop={crop}
@@ -162,10 +162,10 @@ const EasyCrop = (props) => {
                 )}
                 {croppedImage &&
                     <>
-                        <button onClick={onClose} className="absolute top-2 right-2 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
+                        <button onClick={onClose} className="absolute top-2 right-2 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-colors duration-200 ease-in-out">
                             Update
                         </button>
-                        <button onClick={onSubmit} className="absolute bottom-2 right-2 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900">
+                        <button onClick={onSubmit} className="absolute bottom-2 right-2 text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-purple-400 dark:text-purple-400 dark:hover:text-white dark:hover:bg-purple-500 dark:focus:ring-purple-900 transition-colors duration-200 ease-in-out">
                             Upload
                         </button>
                     </>

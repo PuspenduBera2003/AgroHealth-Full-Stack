@@ -87,7 +87,7 @@ const SignUp = () => {
     }, [])
 
     return (
-        <div className="flex w-full items-center justify-center relative dark:bg-stone-800 p-2" style={{ minHeight: 'calc(100vh - 56px)' }}>
+        <div className="flex w-full items-center justify-center relative dark:bg-stone-800 p-2 transition-colors duration-200 ease-in-out" style={{ minHeight: 'calc(100vh - 56px)' }}>
             {/* <ToastContainer
                 position="bottom-right"
                 autoClose={5000}
@@ -116,7 +116,7 @@ const SignUp = () => {
                     {signUpInitialized.response.success ?
                         <OTPInput prevCredentials={credentials} /> :
                         <div className='flex flex-col items-center gap-4 pb-2 w-full'>
-                            <div className="text-xl font-bold text-black dark:text-gray-200">Create your account</div>
+                            <div className="text-xl font-bold text-black dark:text-gray-200 transition-colors duration-200 ease-in-out">Create your account</div>
                             <form onSubmit={handleSignUp} className="w-full flex flex-col gap-4 px-8">
                                 <InputField name="username" placeholder="yourname" label="Username" value={credentials.username} onChange={(e) => setCredentials({ ...credentials, username: e.target.value })} />
                                 <InputField name="email" placeholder="you@example.com" label="Email Address" value={credentials.email} onChange={(e) => setCredentials({ ...credentials, email: e.target.value })} type="email" />
@@ -124,12 +124,12 @@ const SignUp = () => {
                                 <InputField name="confirmPassword" placeholder="Confirm your password" label="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} type="password" />
                                 <div className="flex items-center gap-2">
                                     <input type="checkbox" checked={agreeTerms} onChange={() => setAgreeTerms(!agreeTerms)} className="h-5 w-5 rounded" />
-                                    <label className='text-black dark:text-gray-100'>I agree to the terms and conditions</label>
+                                    <label className='text-black dark:text-gray-100 transition-colors duration-200 ease-in-out'>I agree to the terms and conditions</label>
                                 </div>
                                 <button type="submit" className="w-full py-2 bg-purple-600 text-white rounded-lg">Sign Up</button>
                             </form>
-                            <div className="text-sm text-center mt-1 pb-3 text-black dark:text-gray-100">
-                                Already have an account? <Link to='/auth/signin' className="text-purple-600 dark:text-purple-300 hover:underline">Login</Link>
+                            <div className="text-sm text-center mt-1 pb-3 text-black dark:text-gray-100 transition-colors duration-200 ease-in-out">
+                                Already have an account? <Link to='/auth/signin' className="text-purple-600 dark:text-purple-300 hover:underline transition-colors duration-200 ease-in-out">Login</Link>
                             </div>
                         </div>
                     }

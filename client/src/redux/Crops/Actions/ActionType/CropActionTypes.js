@@ -1,4 +1,6 @@
 export const setMaizeDetails = 'setMaizeDetails'
 export const setMaizeInitial = 'setMaizeInitial'
+export const deleteMaizeDetails = 'deleteMaizeDetails'
 export const setTomatoDetails = 'setTomatoDetails'
 export const setTomatoInitial = 'setTomatoInitial'
+export const deleteTomatoDetails = 'deleteTomatoDetails'

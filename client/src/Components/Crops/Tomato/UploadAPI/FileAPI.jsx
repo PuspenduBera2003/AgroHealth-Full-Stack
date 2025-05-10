@@ -111,11 +111,11 @@ const FileAPI = () => {
                      file:rounded-full file:border-0
                      file:text-sm file:font-semibold
                      file:bg-blue-500 file:text-white
-                     hover:file:bg-blue-600"
+                     hover:file:bg-blue-600 transition-colors duration-200 ease-in-out"
                 />
                 {selectedImage && (
                     <div className="rounded-lg overflow-hidden relative">
-                        <div className="w-60 h-60 bg-stone-200 dark:bg-stone-700 rounded-lg flex items-center justify-center">
+                        <div className="w-60 h-60 bg-stone-200 dark:bg-stone-700 rounded-lg flex items-center justify-center transition-colors duration-200 ease-in-out">
                             <img
                                 src={selectedImage}
                                 alt="Selected"
@@ -126,7 +126,7 @@ const FileAPI = () => {
                             <button
                                 type="submit"
                                 disabled={disabled}
-                                className={`px-4 py-2 rounded-lg ${disabled
+                                className={`px-4 py-2 rounded-lg transition-colors duration-200 ease-in-out ${disabled
                                     ? "bg-gray-400 text-gray-200 cursor-not-allowed"
                                     : "bg-blue-500 text-white hover:bg-blue-600"
                                     }`}

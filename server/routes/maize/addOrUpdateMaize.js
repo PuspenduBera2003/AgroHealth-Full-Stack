@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios");
 const db = require("../../database.js");
 
 router.post('/maize-data/:id', async (req, res) => {
@@ -83,5 +84,41 @@ router.get("/get-maize-data", async (req, res) => {
         return res.status(500).json({ success: false, error });
     }
 })
+
+router.delete("/delete-maize-data", async (req, res) => {
+    const { image } = req.body;
+    const user = req.user;
+
+    if (!user) {
+        return res.status(401).json({ success: false, error: "User is not authenticated" });
+    }
+
+    const id = user.id;
+
+    if (!image) {
+        return res.status(400).json({ success: false, error: "Image key is required" });
+    }
+
+    try {
+        const query = `
+            UPDATE maize_data
+            SET maize_details = COALESCE((
+                SELECT array_agg(elem)
+                FROM (
+                    SELECT elem
+                    FROM unnest(maize_details) AS elem
+                    WHERE (elem::jsonb)->>'image' IS DISTINCT FROM $2
+                ) AS filtered
+            ), '{}')
+            WHERE user_id = $1
+        `;
+
+        await db.query(query, [id, image]);
+        await axios.delete(`${image}`);
+        return res.status(200).json({ success: true, message: "Maize detail deleted successfully" });
+    } catch (err) {
+        return res.status(500).json({ success: false, error: err.message || "Internal server errors" });
+    }
+});
 
 module.exports = router;

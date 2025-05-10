@@ -26,4 +26,16 @@ const uploadTomatoDetails = async (id, tomatoDetails) => {
     }
 }
 
-export { getTomatoDetails, uploadTomatoDetails };
+const deleteTomatoDetails = async (image) => {
+    const tomatoDeleteURL = `${host}/api/delete-tomato-data`
+    try {
+        const doDelete = await axios.delete(tomatoDeleteURL, {
+            data: { image }
+        });
+        return doDelete.data
+    } catch (error) {
+        return ({ success: false, error })
+    }
+}
+
+export { getTomatoDetails, uploadTomatoDetails, deleteTomatoDetails };
